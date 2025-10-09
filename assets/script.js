@@ -14,4 +14,18 @@ document.addEventListener("DOMContentLoaded", function() {
     typeWriter();
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    const names = ["Gia Bảo", "家寶", "家宝", "Penelope", "Penélope", "Pénélope", "Penny"];
+    const rotator = document.getElementById("name-rotator");
+    let index = 0;
+    const delay = 2000; // time (ms) each name is shown
+
+    function rotateName() {
+        rotator.textContent = names[index];
+        index = (index + 1) % names.length;
+        setTimeout(rotateName, delay);
+    }
+
+    rotateName();
+});
 
