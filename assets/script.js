@@ -28,4 +28,15 @@ window.addEventListener("load", function() {
         setTimeout(rotateName, delay);
     }
     if (rotator) rotateName();
+
+    // ===== Show Email button =====
+    const showBtn = document.getElementById("show-email");
+    const email = document.getElementById("email");
+
+    if (showBtn && email) {
+        showBtn.addEventListener("click", function() {
+            email.style.display = "inline";
+            showBtn.style.display = "none";
+        });
+    }
 });
