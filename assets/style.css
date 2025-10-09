@@ -108,22 +108,28 @@ footer {
     color: #222;
     transform: scale(1.05);
 }
+/* Container centering */
 .social-links {
     display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin: 20px 0; /* space below photo */
+    justify-content: center;   /* horizontal centering */
+    align-items: center;       /* vertical alignment if needed */
+    gap: 20px;                 /* space between buttons */
+    margin: 30px 0;            /* space above/below */
+    flex-wrap: wrap;           /* wrap on small screens */
 }
 
+/* Buttons style */
 .social-btn {
     display: inline-block;
-    padding: 8px 16px;
+    padding: 14px 28px;        /* bigger buttons for visibility */
     border: 2px solid #0ff;
     color: #0ff;
     text-decoration: none;
     font-weight: bold;
-    border-radius: 5px;
+    font-size: 18px;           /* larger text */
+    border-radius: 6px;
     transition: 0.3s;
+    text-align: center;
 }
 
 .social-btn:hover {
