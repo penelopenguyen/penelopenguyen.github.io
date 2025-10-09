@@ -1,9 +1,9 @@
-document.addEventListener("DOMContentLoaded", function() {
+window.addEventListener("load", function() {
     // ===== Typewriter effect =====
-    const text = "Hello! Xin chào! I’m Penelope Gia Bao Huu Nguyen, a doctoral researcher in digital humanities.";
-    const speed = 40; // typing speed in milliseconds
-    let i = 0;
     const typewriterTarget = document.getElementById("typewriter");
+    const text = "Hello! Xin chào! I’m Penelope Gia Bao Huu Nguyen, a doctoral researcher in digital humanities.";
+    const speed = 40;
+    let i = 0;
 
     function typeWriter() {
         if (i < text.length) {
@@ -12,20 +12,20 @@ document.addEventListener("DOMContentLoaded", function() {
             setTimeout(typeWriter, speed);
         }
     }
-
-    typeWriter();
+    if (typewriterTarget) typeWriter();
 
     // ===== Rotating name effect =====
-    const names = ["Gia Bảo", "家寶", "家宝", "Penelope", "Penélope", "Pénélope", "Penny"];
     const rotator = document.getElementById("name-rotator");
+    const names = ["Gia Bảo", "家寶", "家宝", "Penelope", "Penélope", "Pénélope", "Penny"];
     let index = 0;
-    const delay = 2000; // time each name is shown in ms
+    const delay = 2000;
 
     function rotateName() {
-        rotator.textContent = names[index];
-        index = (index + 1) % names.length;
+        if (rotator) {
+            rotator.textContent = names[index];
+            index = (index + 1) % names.length;
+        }
         setTimeout(rotateName, delay);
     }
-
-    rotateName();
+    if (rotator) rotateName();
 });
