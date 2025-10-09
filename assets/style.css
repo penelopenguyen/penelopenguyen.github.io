@@ -1,0 +1,82 @@
+/* Basic Reset */
+body {
+    font-family: 'Courier New', monospace;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Header & Menu */
+header {
+    background-color: #222;
+    color: white;
+    padding: 10px 0;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li a {
+    color: #0ff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.menu li a:hover {
+    color: #ff0;
+}
+
+/* Profile Section */
+.profile {
+    text-align: center;
+    padding: 40px 20px 20px 20px;
+}
+
+.profile img {
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 180px;
+    max-width: 100%;
+    border: 3px solid #0ff;
+}
+
+.profile h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+.profile p {
+    font-style: italic;
+    color: #666;
+}
+
+/* Welcome Text */
+.welcome {
+    text-align: center;
+    max-width: 700px;
+    margin: 20px auto 40px auto;
+    line-height: 1.6;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #eee;
+    font-size: 0.9em;
+}
+
+/* Optional: subtle typewriter effect */
+.welcome p {
+    display: inline-block;
+    white-space: pre-wrap;
+}
