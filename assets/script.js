@@ -52,18 +52,17 @@ window.addEventListener('load', function () {
       navLinks.classList.toggle('active');
     });
   }
-
-  // ===== Toggle individual news item (accordion) =====
+   // ===== Simple news toggle =====
   document.querySelectorAll('.news-title').forEach(title => {
-    title.addEventListener('click', function() {
-        const content = this.closest('.news-item').querySelector('.news-content');
-        if (content) {
-            content.classList.toggle('visible');  // toggle simple show/hide
-        }
+    title.addEventListener('click', function () {
+      const content = this.closest('.news-item').querySelector('.news-content');
+      if (content) {
+        content.classList.toggle('visible'); // show/hide content
+      }
     });
   });
 
-  // ===== Automatically show max 5 latest, move rest to "old-news" =====
+  // ===== Automatically move old news to #old-news =====
   const newsItems = Array.from(document.querySelectorAll('#news > .news-item'));
   const oldNewsContainer = document.getElementById('old-news');
   const maxVisible = 5;
@@ -72,23 +71,23 @@ window.addEventListener('load', function () {
     for (let k = maxVisible; k < newsItems.length; k++) {
       oldNewsContainer.appendChild(newsItems[k]);
     }
+    // hide old news initially
+    oldNewsContainer.classList.add('hidden');
   }
 
   // ===== Toggle previous updates section =====
   const showOlderBtn = document.getElementById('show-older-news');
   if (showOlderBtn && oldNewsContainer) {
-    // Hide the button if there is nothing inside old-news
     if (!oldNewsContainer.hasChildNodes()) {
       showOlderBtn.style.display = 'none';
     } else {
-      // start hidden by default (optional)
-      if (!oldNewsContainer.classList.contains('hidden')) {
-        oldNewsContainer.classList.add('hidden');
-      }
       showOlderBtn.addEventListener('click', () => {
         const isHidden = oldNewsContainer.classList.toggle('hidden');
-        showOlderBtn.textContent = isHidden ? '📜 Previous Updates ▼' : '🔺 Hide Previous Updates';
+        showOlderBtn.textContent = isHidden
+          ? '📜 Previous Updates ▼'
+          : '🔺 Hide Previous Updates';
       });
     }
   }
 });
+  
