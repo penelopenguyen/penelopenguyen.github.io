@@ -178,107 +178,70 @@ footer {
     cursor: pointer;
 }
 
+/* Latest News Section */
 .latest-news {
     margin: 40px auto;
     max-width: 800px;
 }
 
+/* Individual news item */
 .news-item {
     margin-bottom: 15px;
     border: 1px solid #0ff;
     border-radius: 6px;
     overflow: hidden;
-}
-
-/* Toggle button style */
-.news-toggle {
-    width: 100%;
-    background-color: #0ff;
-    color: #000;
-    font-weight: bold;
-    font-size: 16px;
     padding: 10px 15px;
-    border: none;
-    cursor: pointer;
-    text-align: left;
-    transition: background 0.3s;
-}
-
-.news-toggle:hover {
-    background-color: #00cccc;
-}
-
-/* 
-.news-content {
-    max-height: 0;
-    overflow: hidden;
-    padding: 0 15px;
     background-color: #111;
-    color: #0ff;
-    transition: max-height 0.4s ease, padding 0.4s ease;
-}
-*/
-
-/* Show content when active */
-.news-item.active .news-content {
-    max-height: 500px; /* adjust if needed */
-    padding: 10px 15px;
 }
 
-/* --- Previous updates button --- */
-.older-btn {
-  display: block;
-  margin: 15px auto;
-  background-color: #0ff;
-  color: #000;
-  font-weight: bold;
-  border: none;
-  padding: 8px 18px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.older-btn:hover {
-  background-color: #00cccc;
-  transform: scale(1.05);
-}
-
-/* ===== Latest News as clickable links ===== */
+/* News headline */
 .news-title {
     font-weight: bold;
-    color: #0056b3;           /* link color */
+    color: #0ff;          /* headline color */
     cursor: pointer;
-    margin: 10px 0;
+    margin: 0;
     transition: color 0.2s ease;
     text-decoration: none;
 }
 
 .news-title:hover {
-    color: #00264d;
+    color: #00cccc;
     text-decoration: underline;
 }
 
-
+/* Hidden content by default */
 .news-content {
-    display: none; 
-    margin-left: 1rem;
-    color: #333;
-} 
+    display: none;       /* hidden by default */
+    margin-top: 10px;
+    color: #fff;         /* readable on dark background */
+    line-height: 1.5;
+}
 
-
+/* Show content when .visible is added */
 .news-content.visible {
-    display: block !important; /* force it to show */
+    display: block;
 }
 
-.hidden {
-  display: none;
+/* Previous updates container hidden by default */
+#old-news.hidden {
+    display: none;
 }
 
-/* Previous updates toggle */
-.toggle-previous {
+/* Previous updates toggle button */
+#show-older-news {
+    display: block;
+    margin: 15px auto;
+    background-color: #0ff;
     color: #000;
     font-weight: bold;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 5px;
     cursor: pointer;
-    margin-top: 1rem;
+    transition: 0.3s;
+}
+
+#show-older-news:hover {
+    background-color: #00cccc;
+    transform: scale(1.05);
 }
