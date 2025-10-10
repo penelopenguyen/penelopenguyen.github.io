@@ -47,7 +47,7 @@ window.addEventListener("load", function() {
       navLinks.classList.toggle("active");
     });
     
-window.addEventListener("load", function() {
+
 
     // ===== Toggle news content when clicking a headline =====
     document.querySelectorAll(".news-title").forEach(title => {
