@@ -55,12 +55,9 @@ window.addEventListener('load', function () {
 
   // ===== Toggle news content when clicking a headline (robust) =====
   document.querySelectorAll('.news-title').forEach(title => {
-    title.addEventListener('click', function () {
-      const item = this.closest('.news-item');
-      if (!item) return;
-      const content = item.querySelector('.news-content');
-      if (!content) return;
-      content.classList.toggle('hidden'); 
+    title.addEventListener("click", function() {
+      const content = this.closest(".news-item").querySelector(".news-content");
+      if (content) content.classList.toggle("visible");
     });
   });
 
