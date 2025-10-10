@@ -46,4 +46,15 @@ window.addEventListener("load", function() {
     menu.addEventListener("click", () => {
       navLinks.classList.toggle("active");
     });
+
+    // ===== Latest news toggle =====
+    const newsToggles = document.querySelectorAll(".news-toggle");
+
+    newsToggles.forEach(toggle => {
+        toggle.addEventListener("click", () => {
+            const newsItem = toggle.parentElement;
+            newsItem.classList.toggle("active");
+        });
+    });
+
 });
