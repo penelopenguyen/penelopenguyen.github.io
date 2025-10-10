@@ -42,26 +42,45 @@
         </section>
 
         <!-- Latest News Section -->
-        <section class="latest-news">
+        <section id="news">
             <h2>📢 Latest News 📢</h2>
-           
+
+            <!-- News items (all items, order newest first) -->
             <div class="news-item">
-                <p class="news-title" onclick="toggleNews(this)">15.09.25: I passed my Confirmation Review 🥳</p>
+                <p class="news-title">15.09.25: I passed my Confirmation Review 🥳</p>
                 <div class="news-content">
                     <p>First PhD milestone: I submitted a complete write-up (~13k words) for my pilot study and had a viva.</p>
                 </div>
             </div>
-            
+
             <div class="news-item">
-                <p class="news-title" onclick="toggleNews(this)">Abstract Admitted: Emerging Methodologies Conference @ Jesus College, Oxford</p>
+                <p class="news-title">Abstract Admitted: Emerging Methodologies Conference @ Jesus College, Oxford</p>
                 <div class="news-content">
                     <p>I will give a full paper presentation on my pilot study on November 18, 2025. Stay tuned!</p>
                 </div>
             </div>
-            
-            
-            <button id="show-older-news" class="older-btn">📜 Previous Updates</button>
-        </section> 
+
+            <div class="news-item">
+                <p class="news-title">Previous Event Example 1</p>
+                <div class="news-content">
+                    <p>Details about an older news item.</p>
+                </div>
+            </div>
+
+            <div class="news-item">
+                <p class="news-title">Previous Event Example 2</p>
+                <div class="news-content">
+                    <p>Details about another older news item.</p>
+                </div>
+            </div>
+
+            <!-- Container for older news (hidden by default) -->
+            <div id="old-news" class="hidden"></div>
+
+            <!-- Toggle button -->
+            <p id="show-older-news" class="toggle-previous">📜 Previous Updates ▼</p>
+        </section>
+
             
 
     </main>
