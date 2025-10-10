@@ -275,4 +275,5 @@ footer {
 .hidden {
     display: none;
 }
-
+.nav-links.active { /* your mobile-open styles */ }
+.news-content { /* default visible or hidden depending on your design */ }
