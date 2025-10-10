@@ -56,11 +56,11 @@ window.addEventListener('load', function () {
   // ===== Toggle news content when clicking a headline (robust) =====
   document.querySelectorAll('.news-title').forEach(title => {
     title.addEventListener('click', function () {
-      const item = this.closest('.news-item') || this.parentElement;
+      const item = this.closest('.news-item');
       if (!item) return;
       const content = item.querySelector('.news-content');
       if (!content) return;
-      content.classList.toggle('hidden'); // prefer CSS to control display
+      content.classList.toggle('visible'); 
     });
   });
 
