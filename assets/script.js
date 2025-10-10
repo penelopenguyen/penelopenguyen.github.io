@@ -55,10 +55,10 @@ window.addEventListener('load', function () {
 
   // ===== Toggle individual news item (accordion) =====
   document.querySelectorAll('.news-title').forEach(title => {
-    title.addEventListener("click", function() {
-        const newsItem = this.closest(".news-item");
-        if (newsItem) {
-            newsItem.classList.toggle("active"); // triggers CSS max-height animation
+    title.addEventListener('click', function() {
+        const content = this.closest('.news-item').querySelector('.news-content');
+        if (content) {
+            content.classList.toggle('visible');  // toggle simple show/hide
         }
     });
   });
