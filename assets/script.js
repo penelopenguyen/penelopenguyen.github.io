@@ -46,29 +46,38 @@ window.addEventListener("load", function() {
     menu.addEventListener("click", () => {
       navLinks.classList.toggle("active");
     });
+    
+window.addEventListener("load", function() {
 
     // ===== Toggle news content when clicking a headline =====
-    function toggleNews(element) {
-      const content = element.nextElementSibling;
-      content.style.display = content.style.display === "block" ? "none" : "block";
-    }
+    document.querySelectorAll(".news-title").forEach(title => {
+        title.addEventListener("click", function() {
+            const content = this.nextElementSibling;
+            content.style.display = content.style.display === "block" ? "none" : "block";
+        });
+    });
 
-    // ===== Toggle Previous Updates section =====
-    function togglePrevious() {
-      const oldNews = document.getElementById("old-news");
-      const toggle = document.querySelector(".toggle-previous");
-      const isHidden = oldNews.classList.toggle("hidden");
-      toggle.textContent = isHidden ? "Previous updates ▼" : "Previous updates ▲";
-    }
-    // ===== Optional: automatically move news beyond 5 into "Previous Updates" =====
-    const newsItems = document.querySelectorAll("#news > .news-item");
+    // ===== Automatically show max 5 latest, move rest to "old-news" =====
+    const newsItems = Array.from(document.querySelectorAll("#news > .news-item"));
     const oldNewsContainer = document.getElementById("old-news");
     const maxVisible = 5;
 
     if (newsItems.length > maxVisible) {
-      for (let i = maxVisible; i < newsItems.length; i++) {
-        oldNewsContainer.appendChild(newsItems[i]);
-      }
+        for (let i = maxVisible; i < newsItems.length; i++) {
+            oldNewsContainer.appendChild(newsItems[i]);
+        }
+    }
+
+    // ===== Toggle previous updates section =====
+    const showOlderBtn = document.getElementById("show-older-news");
+    showOlderBtn.addEventListener("click", () => {
+        const isHidden = oldNewsContainer.classList.toggle("hidden");
+        showOlderBtn.textContent = isHidden ? "📜 Previous Updates ▼" : "🔺 Hide Previous Updates";
+    });
+
+    // Hide toggle button if no old news
+    if (!oldNewsContainer.hasChildNodes()) {
+        showOlderBtn.style.display = "none";
     }
 
 });
