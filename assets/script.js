@@ -53,13 +53,12 @@ window.addEventListener('load', function () {
     });
   }
 
-  // ===== Toggle news content when clicking a headline (robust) =====
+  // ===== Toggle individual news item (accordion) =====
   document.querySelectorAll('.news-title').forEach(title => {
     title.addEventListener("click", function() {
-        const content = this.closest(".news-item").querySelector(".news-content");
-        if (content) {
-            content.classList.toggle("visible"); // only toggle .visible
-            console.log('Toggled content for:', title.textContent, content.className);
+        const newsItem = this.closest(".news-item");
+        if (newsItem) {
+            newsItem.classList.toggle("active"); // triggers CSS max-height animation
         }
     });
   });
