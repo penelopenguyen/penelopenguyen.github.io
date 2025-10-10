@@ -108,32 +108,35 @@ footer {
     color: #222;
     transform: scale(1.05);
 }
-/* Container centering */
+/* Center container */
 .social-links {
     display: flex;
-    justify-content: center;   /* horizontal centering */
-    align-items: center;       /* vertical alignment if needed */
-    gap: 20px;                 /* space between buttons */
-    margin: 30px 0;            /* space above/below */
-    flex-wrap: wrap;           /* wrap on small screens */
+    justify-content: center;  /* horizontal centering */
+    gap: 15px;                /* space between buttons */
+    margin: 30px auto;        /* vertical spacing, auto horizontal */
+    flex-wrap: wrap;          /* wrap on small screens */
+    width: fit-content;       /* shrink container to content */
 }
 
-/* Buttons style */
+/* Square buttons with same width */
 .social-btn {
     display: inline-block;
-    padding: 14px 28px;        /* bigger buttons for visibility */
-    border: 2px solid #0ff;
-    color: #0ff;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 18px;           /* larger text */
-    border-radius: 6px;
-    transition: 0.3s;
+    padding: 14px 20px;
+    background-color: #0ff;       /* blue background */
+    color: #000;                  /* black text */
+    font-weight: bold;            /* bold text */
+    font-size: 16px;
     text-align: center;
+    text-decoration: none;
+    border: 2px solid #000;       /* black border before hover */
+    border-radius: 0;             /* square corners */
+    transition: 0.3s;
+    width: 140px;                 /* all buttons same width */
 }
 
+/* Hover effect */
 .social-btn:hover {
-    background-color: #0ff;
-    color: #111;
-    transform: scale(1.05);
+    filter: brightness(85%);      /* slightly darker on hover */
+    cursor: pointer;
 }
+
