@@ -46,16 +46,20 @@ window.addEventListener("load", function() {
     menu.addEventListener("click", () => {
       navLinks.classList.toggle("active");
     });
-    
+
+ 
 window.addEventListener("load", function() {
 
     // ===== Toggle news content when clicking a headline =====
     document.querySelectorAll(".news-title").forEach(title => {
         title.addEventListener("click", function() {
-            const content = this.nextElementSibling;
-            content.style.display = content.style.display === "block" ? "none" : "block";
+            const content = this.parentElement.querySelector(".news-content");
+            if (content) {
+                content.style.display = content.style.display === "block" ? "none" : "block";
+            }
         });
     });
+
 
     // ===== Automatically show max 5 latest, move rest to "old-news" =====
     const newsItems = Array.from(document.querySelectorAll("#news > .news-item"));
