@@ -47,40 +47,6 @@ window.addEventListener("load", function() {
       navLinks.classList.toggle("active");
     });
 
-    // ===== Latest news toggle =====
-    const newsToggles = document.querySelectorAll(".news-toggle");
-
-    newsToggles.forEach(toggle => {
-        toggle.addEventListener("click", () => {
-            const newsItem = toggle.parentElement;
-            newsItem.classList.toggle("active");
-        });
-    });
-    
-    // ===== Show only 5 latest news =====
-    const allNews = document.querySelectorAll(".latest-news .news-item");
-    const maxVisible = 5;
-    const showOlderBtn = document.getElementById("show-older-news");
-
-    if (allNews.length > maxVisible) {
-      // hide older items
-      for (let i = maxVisible; i < allNews.length; i++) {
-        allNews[i].style.display = "none";
-      }
-
-      // toggle visibility when clicking "Previous Updates"
-      showOlderBtn.addEventListener("click", () => {
-        const isHidden = allNews[maxVisible].style.display === "none";
-        for (let i = maxVisible; i < allNews.length; i++) {
-          allNews[i].style.display = isHidden ? "block" : "none";
-        }
-        showOlderBtn.textContent = isHidden ? "🔺 Hide Previous Updates" : "📜 Previous Updates";
-      });
-    } else {
-      // hide button if fewer than 5 items
-      if (showOlderBtn) showOlderBtn.style.display = "none";
-    }
-
     // ===== Toggle news content when clicking a headline =====
     function toggleNews(element) {
       const content = element.nextElementSibling;
@@ -94,6 +60,15 @@ window.addEventListener("load", function() {
       const isHidden = oldNews.classList.toggle("hidden");
       toggle.textContent = isHidden ? "Previous updates ▼" : "Previous updates ▲";
     }
+    // ===== Optional: automatically move news beyond 5 into "Previous Updates" =====
+    const newsItems = document.querySelectorAll("#news > .news-item");
+    const oldNewsContainer = document.getElementById("old-news");
+    const maxVisible = 5;
 
+    if (newsItems.length > maxVisible) {
+      for (let i = maxVisible; i < newsItems.length; i++) {
+        oldNewsContainer.appendChild(newsItems[i]);
+      }
+    }
 
 });
