@@ -52,17 +52,19 @@ window.addEventListener("load", function() {
     // ===== Toggle news content when clicking a headline =====
     document.querySelectorAll(".news-title").forEach(title => {
         title.addEventListener("click", function() {
-            const content = this.nextElementSibling;
-            content.style.display = content.style.display === "block" ? "none" : "block";
+            const content = this.parentElement.querySelector(".news-content");
+            if (!content) return;
+            const isVisible = window.getComputedStyle(content).display !== "none";
+            content.style.display = isVisible ? "none" : "block";
         });
     });
 
     // ===== Automatically show max 5 latest, move rest to "old-news" =====
-    const newsItems = Array.from(document.querySelectorAll("#news > .news-item"));
+    cconst newsItems = Array.from(document.querySelectorAll("#news > .news-item"));
     const oldNewsContainer = document.getElementById("old-news");
     const maxVisible = 5;
 
-    if (newsItems.length > maxVisible) {
+    if (oldNewsContainer && newsItems.length > maxVisible) {
         for (let i = maxVisible; i < newsItems.length; i++) {
             oldNewsContainer.appendChild(newsItems[i]);
         }
@@ -70,10 +72,12 @@ window.addEventListener("load", function() {
 
     // ===== Toggle previous updates section =====
     const showOlderBtn = document.getElementById("show-older-news");
-    showOlderBtn.addEventListener("click", () => {
-        const isHidden = oldNewsContainer.classList.toggle("hidden");
-        showOlderBtn.textContent = isHidden ? "📜 Previous Updates ▼" : "🔺 Hide Previous Updates";
-    });
+    if (showOlderBtn && oldNewsContainer) {
+        showOlderBtn.addEventListener("click", () => {
+            const isHidden = oldNewsContainer.classList.toggle("hidden");
+            showOlderBtn.textContent = isHidden ? "📜 Previous Updates ▼" : "🔺 Hide Previous Updates";
+        });
+
 
     // Hide toggle button if no old news
     if (!oldNewsContainer.hasChildNodes()) {
