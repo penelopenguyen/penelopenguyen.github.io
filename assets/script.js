@@ -56,5 +56,29 @@ window.addEventListener("load", function() {
             newsItem.classList.toggle("active");
         });
     });
+    
+    // ===== Show only 5 latest news =====
+    const allNews = document.querySelectorAll(".latest-news .news-item");
+    const maxVisible = 5;
+    const showOlderBtn = document.getElementById("show-older-news");
+
+    if (allNews.length > maxVisible) {
+      // hide older items
+      for (let i = maxVisible; i < allNews.length; i++) {
+        allNews[i].style.display = "none";
+      }
+
+      // toggle visibility when clicking "Previous Updates"
+      showOlderBtn.addEventListener("click", () => {
+        const isHidden = allNews[maxVisible].style.display === "none";
+        for (let i = maxVisible; i < allNews.length; i++) {
+          allNews[i].style.display = isHidden ? "block" : "none";
+        }
+        showOlderBtn.textContent = isHidden ? "🔺 Hide Previous Updates" : "📜 Previous Updates";
+      });
+    } else {
+      // hide button if fewer than 5 items
+      if (showOlderBtn) showOlderBtn.style.display = "none";
+    }
 
 });
