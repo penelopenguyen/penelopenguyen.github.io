@@ -81,4 +81,19 @@ window.addEventListener("load", function() {
       if (showOlderBtn) showOlderBtn.style.display = "none";
     }
 
+    // ===== Toggle news content when clicking a headline =====
+    function toggleNews(element) {
+      const content = element.nextElementSibling;
+      content.style.display = content.style.display === "block" ? "none" : "block";
+    }
+
+    // ===== Toggle Previous Updates section =====
+    function togglePrevious() {
+      const oldNews = document.getElementById("old-news");
+      const toggle = document.querySelector(".toggle-previous");
+      const isHidden = oldNews.classList.toggle("hidden");
+      toggle.textContent = isHidden ? "Previous updates ▼" : "Previous updates ▲";
+    }
+
+
 });
