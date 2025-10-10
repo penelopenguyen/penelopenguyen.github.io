@@ -224,3 +224,23 @@ footer {
     padding: 10px 15px;
 }
 
+/* --- Previous updates button --- */
+.older-btn {
+  display: block;
+  margin: 15px auto;
+  background-color: #0ff;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.older-btn:hover {
+  background-color: #00cccc;
+  transform: scale(1.05);
+}
+
+
