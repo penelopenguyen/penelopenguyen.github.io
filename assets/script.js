@@ -60,7 +60,7 @@ window.addEventListener('load', function () {
       if (!item) return;
       const content = item.querySelector('.news-content');
       if (!content) return;
-      content.classList.toggle('visible'); 
+      content.classList.toggle('hidden'); 
     });
   });
 
