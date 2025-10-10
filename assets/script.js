@@ -57,7 +57,9 @@ window.addEventListener('load', function () {
   document.querySelectorAll('.news-title').forEach(title => {
     title.addEventListener("click", function() {
       const content = this.closest(".news-item").querySelector(".news-content");
-      if (content) content.classList.toggle("visible");
+      if (content) {
+        content.classList.toggle("visible"); // only toggles .visible
+      }
     });
   });
 
