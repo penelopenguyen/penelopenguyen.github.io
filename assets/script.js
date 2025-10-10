@@ -54,9 +54,12 @@ window.addEventListener("load", function() {
     document.querySelectorAll(".news-title").forEach(title => {
         title.addEventListener("click", function() {
             const content = this.parentElement.querySelector(".news-content");
-            if (content) {
-                content.style.display = content.style.display === "block" ? "none" : "block";
-            }
+            if (!content) return;
+            // Toggle display
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
         });
     });
 
