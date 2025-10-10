@@ -1,5 +1,4 @@
 window.addEventListener("load", function() {
-
     // ===== Typewriter effect =====
     const typewriterTarget = document.getElementById("typewriter");
     const text = "Hello! Xin chào! I’m Penelope Gia Bao Huu Nguyen, a doctoral researcher in digital humanities.";
@@ -7,7 +6,6 @@ window.addEventListener("load", function() {
     let i = 0;
 
     function typeWriter() {
-        if (!typewriterTarget) return;
         if (i < text.length) {
             typewriterTarget.textContent += text.charAt(i);
             i++;
@@ -23,9 +21,10 @@ window.addEventListener("load", function() {
     const delay = 2000;
 
     function rotateName() {
-        if (!rotator) return;
-        rotator.textContent = names[index];
-        index = (index + 1) % names.length;
+        if (rotator) {
+            rotator.textContent = names[index];
+            index = (index + 1) % names.length;
+        }
         setTimeout(rotateName, delay);
     }
     if (rotator) rotateName();
@@ -33,29 +32,28 @@ window.addEventListener("load", function() {
     // ===== Show Email button =====
     const showBtn = document.getElementById("show-email");
     const email = document.getElementById("email");
+
     if (showBtn && email) {
         showBtn.addEventListener("click", function() {
             email.style.display = "inline";
             showBtn.style.display = "none";
         });
     }
-
     // ===== Mobile Menu Toggle =====
     const menu = document.getElementById("mobile-menu");
     const navLinks = document.querySelector(".nav-links");
-    if (menu && navLinks) {
-        menu.addEventListener("click", () => {
-            navLinks.classList.toggle("active");
-        });
-    }
+
+    menu.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+    
+window.addEventListener("load", function() {
 
     // ===== Toggle news content when clicking a headline =====
     document.querySelectorAll(".news-title").forEach(title => {
         title.addEventListener("click", function() {
-            const content = this.parentElement && this.parentElement.querySelector(".news-content");
-            if (!content) return;
-            const isVisible = window.getComputedStyle(content).display !== "none";
-            content.style.display = isVisible ? "none" : "block";
+            const content = this.nextElementSibling;
+            content.style.display = content.style.display === "block" ? "none" : "block";
         });
     });
 
@@ -64,7 +62,7 @@ window.addEventListener("load", function() {
     const oldNewsContainer = document.getElementById("old-news");
     const maxVisible = 5;
 
-    if (oldNewsContainer && newsItems.length > maxVisible) {
+    if (newsItems.length > maxVisible) {
         for (let i = maxVisible; i < newsItems.length; i++) {
             oldNewsContainer.appendChild(newsItems[i]);
         }
@@ -72,15 +70,14 @@ window.addEventListener("load", function() {
 
     // ===== Toggle previous updates section =====
     const showOlderBtn = document.getElementById("show-older-news");
-    if (showOlderBtn && oldNewsContainer) {
-        showOlderBtn.addEventListener("click", () => {
-            const isHidden = oldNewsContainer.classList.toggle("hidden");
-            showOlderBtn.textContent = isHidden ? "📜 Previous Updates ▼" : "🔺 Hide Previous Updates";
-        });
+    showOlderBtn.addEventListener("click", () => {
+        const isHidden = oldNewsContainer.classList.toggle("hidden");
+        showOlderBtn.textContent = isHidden ? "📜 Previous Updates ▼" : "🔺 Hide Previous Updates";
+    });
 
-        // Hide toggle button if no old news
-        if (!oldNewsContainer.hasChildNodes()) {
-            showOlderBtn.style.display = "none";
-        }
+    // Hide toggle button if no old news
+    if (!oldNewsContainer.hasChildNodes()) {
+        showOlderBtn.style.display = "none";
     }
+
 });
