@@ -259,13 +259,13 @@ footer {
 }
 
 .news-content {
-    display: none;             /* hidden by default */
+    display: none; /* hidden by default */
     margin-left: 1rem;
     color: #333;
 }
 
 .news-content.visible {
-    display: block; /* show when JS adds this class */
+    display: block !important; /* force it to show */
 }
 
 .hidden {
