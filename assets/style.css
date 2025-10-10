@@ -243,4 +243,36 @@ footer {
   transform: scale(1.05);
 }
 
+/* ===== Latest News as clickable links ===== */
+.news-title {
+    font-weight: bold;
+    color: #0056b3;           /* link color */
+    cursor: pointer;
+    margin: 10px 0;
+    transition: color 0.2s ease;
+    text-decoration: none;
+}
+
+.news-title:hover {
+    color: #00264d;
+    text-decoration: underline;
+}
+
+.news-content {
+    display: none;             /* hidden by default */
+    margin-left: 1rem;
+    color: #333;
+}
+
+/* Previous updates toggle */
+.toggle-previous {
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.hidden {
+    display: none;
+}
 
